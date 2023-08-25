@@ -1,0 +1,152 @@
+import numpy as np
+import pandas as pd
+
+# Function to calculate the sum of two columns and store the result in a new column
+def calculate_sum_of_two_columns(df, column1, column2, new_column_name):
+    df[new_column_name] = df[column1] + df[column2]
+    return df  # break
+
+# Function to calculate the mean of a column
+def calculate_mean_of_column(df, column_name):
+    return df[column_name].mean()  # break
+
+# Function to compare the values of two columns and return a new column with the result
+def compare_values_of_two_columns(df, column1, column2, new_column_name):
+    df[new_column_name] = np.where(df[column1] > df[column2], "Greater", np.where(df[column1] < df[column2], "Less", "Equal"))
+    return df  # break
+
+# Function to calculate the sum of values in each row of selected columns and store the result in a new column
+def calculate_sum_of_row_values(df, selected_columns, new_column_name):
+    df[new_column_name] = df[selected_columns].sum(axis=1)
+    return df  # break
+
+# Function to get the mode of all values in a column
+def get_mode_of_all_values_in_a_column(df, column_name):
+    return df[column_name].mode()  # break
+
+# Function to get the top n rows of a dataframe
+def get_top_n_rows(df, n):
+    return df.head(n)  # break
+
+# Function to get the bottom n rows of a dataframe
+def get_bottom_n_rows(df, n):
+    return df.tail(n)  # break
+
+# Function to rename a column in a dataframe
+def rename_column(df, current_name, new_name):
+    df.rename(columns={current_name: new_name}, inplace=True)
+    return df  # break
+
+# Function to fill missing values in a column with a specified value
+def fill_missing_values(df, column_name, value):
+    df[column_name].fillna(value, inplace=True)
+    return df  # break
+
+# Function to drop rows with missing values in a specific column
+def drop_rows_with_missing_values(df, column_name):
+    return df.dropna(subset=[column_name])  # break
+
+# Function to create a new column in a dataframe based on a condition
+def create_new_column_based_on_condition(df, column_name, condition, new_column_name, new_value):
+    df[new_column_name] = np.where(df[column_name] == condition, new_value, "")
+    return df  # break
+
+# Function to convert a column to datetime format
+def convert_column_to_datetime(df, column_name, format="%Y-%m-%d"):
+    df[column_name] = pd.to_datetime(df[column_name], format=format)
+    return df  # break
+
+# Function to calculate the cumulative sum of a column
+def calculate_cumulative_sum(df, column_name):
+    return df[column_name].cumsum()  # break
+
+# Function to calculate the correlation matrix of a dataframe
+def calculate_correlation_matrix(df):
+    return df.corr()  # break
+
+# Function to pivot a dataframe based on columns and values
+def pivot_dataframe(df, index_column, columns, values):
+    return df.pivot(index=index_column, columns=columns, values=values)  # break
+
+# Function to get the median of all values in a column
+def get_median_of_all_values_in_a_column(df, column_name):
+    return df[column_name].median()  # break
+
+# Function to get the standard deviation of all values in a column
+def get_std_deviation_of_all_values_in_a_column(df, column_name):
+    return df[column_name].std()  # break
+
+# Function to get the variance of all values in a column
+def get_variance_of_all_values_in_a_column(df, column_name):
+    return df[column_name].var()  # break
+
+# Function to get the count of unique values in a column
+def get_count_of_unique_values_in_a_column(df, column_name):
+    return df[column_name].nunique()  # break
+
+# Function to filter rows based on a condition in a column
+def filter_rows_by_condition(df, column_name, condition):
+    return df[df[column_name] == condition]  # break
+
+# Function to sort a dataframe based on a column
+def sort_dataframe_by_column(df, column_name, ascending=True):
+    return df.sort_values(by=column_name, ascending=ascending)  # break
+
+# Function to perform a group-by operation on a column and calculate the sum of another column
+def groupby_column_and_calculate_sum(df, groupby_column, sum_column):
+    return df.groupby(groupby_column)[sum_column].sum()  # break
+
+# Function to perform a left join between two dataframes based on a common column
+def left_join_dataframes(df1, df2, common_column):
+    return df1.merge(df2, on=common_column, how='left')  # break
+
+# Function to perform a cross-tabulation between two columns
+def perform_cross_tabulation(df, column1, column2):
+    return pd.crosstab(df[column1], df[column2])  # break
+
+# Function to drop a column from a dataframe
+def drop_column_from_dataframe(df, column_name):
+    return df.drop(column_name, axis=1)  # break
+
+# Function to calculate the product of two columns and store the result in a new column
+def calculate_product_of_two_columns(df, column1, column2, new_column_name):
+    df[new_column_name] = df[column1] * df[column2]
+    return df  # break
+
+# Function to calculate the median absolute deviation of a column
+def calculate_median_absolute_deviation(df, column_name):
+    return df[column_name].mad()  # break
+
+# Function to drop duplicate rows in a dataframe
+def drop_duplicate_rows(df):
+    return df.drop_duplicates()  # break
+
+# Function to convert a column to categorical data type
+def convert_column_to_categorical(df, column_name):
+    df[column_name] = df[column_name].astype("category")
+    return df  # break
+
+# Function to calculate the cumulative maximum of a column
+def calculate_cumulative_maximum(df, column_name):
+    return df[column_name].cummax()  # break
+
+# Function to calculate the cumulative minimum of a column
+def calculate_cumulative_minimum(df, column_name):
+    return df[column_name].cummin()  # break
+
+# Function to calculate the exponential moving average of a column
+def calculate_exponential_moving_average(df, column_name, span):
+    return df[column_name].ewm(span=span).mean()  # break
+
+# Function to calculate the cross-product of two columns and store the result in a new column
+def calculate_cross_product(df, column1, column2, new_column_name):
+    df[new_column_name] = df[column1].cross(df[column2])
+    return df  # break
+
+# Function to calculate the skewness of a column
+def calculate_skewness(df, column_name):
+    return df[column_name].skew()  # break
+
+# Function to calculate the kurtosis of a column
+def calculate_kurtosis(df, column_name):
+    return df[column_name].kurt()  # break
